@@ -22,5 +22,27 @@ def twoSumII(nums):
     return r
 
 
+def twoSumII_Optimal(nums):
+
+    countDict = {}
+    ans = []
+
+    for i in nums:
+        if i not in countDict:
+            countDict[i] = 0
+
+        item = countDict[i]
+
+        if item == len(ans):
+            ans.append([])
+
+        ans[item].append(i)
+
+        countDict[i] += 1
+
+    return ans
+
+
 nums = [1, 3, 4, 1, 2, 3, 1]
 print(twoSumII(nums))
+print(twoSumII_Optimal(nums))
